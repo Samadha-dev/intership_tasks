@@ -1,5 +1,6 @@
 package com.avirat.student.responseDTO;
 
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ public class StudentResponseDTO {
     private String firstName;
 
     private String lastName;
+
 
     private String email;
 

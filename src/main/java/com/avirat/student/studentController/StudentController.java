@@ -4,6 +4,7 @@ import com.avirat.student.requestDTO.StudentRequestDTO;
 import com.avirat.student.responseDTO.StudentResponseDTO;
 import com.avirat.student.studentEntity.StudentEntity;
 import com.avirat.student.studentService.Impl.StudentServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class StudentController {
 
     // CREATE
     @PostMapping
-    public ResponseEntity<StudentResponseDTO> createStudent(@RequestBody StudentRequestDTO request) {
+    public ResponseEntity<StudentResponseDTO> createStudent(@Valid @RequestBody StudentRequestDTO request) {
         return ResponseEntity.ok(studentService.createStudent(request));
     }
 
@@ -37,8 +38,7 @@ public class StudentController {
 
     // UPDATE
     @PutMapping("/{id}")
-    public ResponseEntity<StudentResponseDTO> updateStudent(@PathVariable Long id,
-                                                            @RequestBody StudentRequestDTO request) {
+    public ResponseEntity<StudentResponseDTO> updateStudent(@PathVariable Long id, @Valid @RequestBody StudentRequestDTO request) {
         return ResponseEntity.ok(studentService.updateStudent(id, request));
     }
 
